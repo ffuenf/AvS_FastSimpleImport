@@ -1,11 +1,13 @@
-## FastSimpleImport - Array Adapter for Magento ImportExport
+FastSimpleImport - Array Adapter for Magento ImportExport
+====================================
 
 ### Import products and customers into Magento, using the new fast ImportExport core module.
 
 This module allows to import from arrays and thus using any import source, while the Magento module only imports from files.
 ImportExport exists since Magento 1.5 CE / 1.10 EE, image import since 1.6 CE / 1.11 EE. Thus, this module needs at least one of those versions.
 
-### Basic Usage
+Basic Usage
+-------
 
 Call it like this:
 ```php
@@ -40,7 +42,8 @@ You can see the [test file](https://github.com/avstudnitz/AvS_FastSimpleImport/b
 
 See [specifications about the expected format](http://www.avs-webentwicklung.de/fileadmin/documents/20120512_Produktimport_ImportExport_eng.pdf).
 
-### Features
+Features
+-------
 
 * Import products and customers from php arrays (see above)
 * Bugfix for ImportExport: default values were set on updates when the attribute was not given (only when a default value was present, i.e. with visibility)
@@ -76,3 +79,21 @@ Mage::getSingleton('fastsimpleimport/import')
     ->setDropdownAttributes(array('manufacturer', 'color'))
     ->processProductImport($data);
 ```
+
+Modifications
+-------
+
+Added adapter for singleline csv imports (according to http://www.aschroder.com/2012/09/improving-magento-importexport-module-with-better-file-format-and-google-docs-integration/).
+The script translates the importfile (example see singleline.csv column multilinefield) to the format expected from AvS_FastSimpleImport (see example above).
+This way we can start using csv-style file imports and easily switch to a Webservice later on.
+
+Authors
+-------
+
+**Andreas von Studnitz**
+
++ http://www.avs-webentwicklung.de/
+
+**Achim Rosenhagen / Philipp Pra**
+
++ http://www.ffuenf.de/
